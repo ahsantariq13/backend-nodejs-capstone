@@ -38,6 +38,8 @@ const logger = require('./logger');
 
 app.use(pinoHttp({ logger }));
 
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
 // Use Routes
 // authRoutes Step 2: add the authRoutes and to the server by using the app.use() method.
 app.use('/api/auth', authRoutes);
