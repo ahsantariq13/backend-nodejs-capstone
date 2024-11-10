@@ -10,6 +10,7 @@ export default [
     rules: {
       'spaced-comment': ['error', 'always'],
       'semi': ['error', 'always'],
+      'no-extra-semi': ['error'], // {{ edit_1 }} Added rule to check for extra semicolons
       'object-curly-spacing': ['error', 'always'],
       'quotes': ['error', 'single'],
       'no-unused-vars': ['error'],

@@ -11,7 +11,7 @@ const dbName = `${process.env.MONGO_DB}`;
 async function connectToDatabase() {
   if (dbInstance){
     return dbInstance;
-  };
+  }
 
   const client = new MongoClient(url);      
 
