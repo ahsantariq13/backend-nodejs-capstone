@@ -15,5 +15,5 @@ jobs:
         uses: actions/setup-node@v4
       - name: Install and Run Linter
         run: |
-          cd secondChance-backend && npm run lint
+          cd secondChance-backend && npm i && npm run lint
           echo "Linted all the js files successfully"
