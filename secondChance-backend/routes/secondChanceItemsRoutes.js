@@ -67,19 +67,21 @@ router.post('/', upload.single('file'), async (req, res, next) => {
 
 // Get a single secondChanceItem by ID
 router.get('/:id', async (req, res, next) => {
-    try {
-        //Step 4: task 1 - insert code here
-        const db = await connectToDatabase();
-        //Step 4: task 2 - insert code here
-        const collection = db.collection("secondChanceItems");
-        //Step 4: task 3 - insert code here
-        const secondChanceItem = await collection.findOne({ id: id });
+  try {
+    const id = req.params.id;
+    //Step 4: task 1 - insert code here
+    const db = await connectToDatabase();
+    //Step 4: task 2 - insert code here
+    const collection = db.collection("secondChanceItems");
+    //Step 4: task 3 - insert code here
+    const secondChanceItem = await collection.findOne({ id: id });
         //Step 4: task 4 - insert code here
         if (!secondChanceItem) {
             return res.status(404).send("secondChanceItem not found");
         }
         res.json(secondChanceItem);
     } catch (e) {
+        console.log(e);
         next(e);
     }
 });
@@ -87,6 +89,7 @@ router.get('/:id', async (req, res, next) => {
 // Update and existing item
 router.put('/:id', async (req, res, next) => {
     try {
+        const id = req.params.id
         //Step 5: task 1 - insert code here
         const db = await connectToDatabase();
         //Step 5: task 2 - insert code here
@@ -123,6 +126,7 @@ router.put('/:id', async (req, res, next) => {
 // Delete an existing item
 router.delete('/:id', async (req, res, next) => {
     try {
+        const id = req.params.id
         //Step 6: task 1 - insert code here
         const db = await connectToDatabase();
         //Step 6: task 2 - insert code here
